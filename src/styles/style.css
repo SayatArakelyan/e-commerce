@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  outline: none;
+  transition: .3s all;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  background-color: #000c24; }
+
+button, input {
+  cursor: pointer; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto; }
+
+.row {
+  display: flex;
+  flex-wrap: wrap; }
+
+.header {
+  position: relative; }
+  .header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .header__left {
+    display: flex;
+    align-items: center;
+    column-gap: 40px; }
+  .header__logo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 100%; }
+  .header__center {
+    display: flex;
+    align-items: center; }
+  .header__list {
+    display: flex;
+    font-size: 40px; }
+  .header__list li {
+    margin-right: 10px; }
+  .header__button {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 30px; }
+  .header__right {
+    display: flex;
+    align-items: center; }
+  .header__search {
+    position: relative; }
+    .header__search__icon {
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      transform: translateY(-50%); }
+    .header__search__filed {
+      width: 230px;
+      height: 32px;
+      background: #424242;
+      border-radius: 8px;
+      border: none;
+      padding: 0 12px 0 34px; }
+  .header .sign__in__form {
+    width: 500px;
+    height: 730px;
+    background-color: #000c24;
+    display: flex;
+    flex-direction: column;
+    color: white; }
+    .header .sign__in__form__header {
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      padding-top: 10px; }
+    .header .sign__in__form__register__button {
+      width: 100px;
+      height: 40px;
+      background-color: #a71f67;
+      border-radius: 10px; }
+    .header .sign__in__form__hide {
+      color: #959aa4;
+      font-size: 20px;
+      background-color: #000c24;
+      height: 40px;
+      width: 40px;
+      border: none; }
+    .header .sign__in__form__description {
+      height: 120px;
+      color: white;
+      margin-bottom: 30px;
+      font-size: 25px; }
+    .header .sign__in__form__description p {
+      color: #959aa4;
+      font-size: 16px; }
+    .header .sign__in__form__form {
+      display: flex;
+      flex-direction: column; }
+      .header .sign__in__form__form .username, .header .sign__in__form__form .password {
+        width: 450px;
+        height: 70px;
+        border-radius: 10px;
+        background-color: #263045;
+        margin: 20px 0 10px 15px; }
+      .header .sign__in__form__form .sign__in {
+        width: 450px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #109121;
+        margin: 10px 0 0px 15px; }
+
+.modal {
+  position: absolute;
+  top: 200px;
+  right: 700px; }
+
+/*# sourceMappingURL=style.css.map */

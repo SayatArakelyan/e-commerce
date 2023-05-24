@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  outline: none;
+  transition: .3s all;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  background-color: #000c24;
+
+}
+
+button, input {
+  cursor: pointer;
+}
+
+$blue: #0275B1;
+$black: #181818;
+$grey: #8C8C8C;
+$red: #F52222D;
+
+@mixin text($fz,$fw,$lh,$color) {
+  font-size: $fz;
+  font-weight: $fw;
+  @if $lh > 0 {
+    line-height: $lh;
+  }
+  color: $color;
+
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@import "header";

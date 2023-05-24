@@ -1,0 +1,17 @@
+{
+  "header": {
+    "filed": "Search"
+  },
+  "form": {
+    "btn1": "Sign in",
+    "btn2": "Register",
+    "title1": "Already have an account",
+    "title2": "SIGN IN, WE ARE WAITING FOR YOU",
+    "title3": "New Number?",
+    "title4": "REGISTER NOW, IT'S EASY!",
+    "btn3": "Next"
+  },
+  "menu": {
+    "title": "Home"
+  }
+}
