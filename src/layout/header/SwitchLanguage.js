@@ -2,10 +2,10 @@ import React from 'react';
 import {useTranslation} from 'react-i18next';
 
 function SwitchLanguage() {
-    const { i18n} = useTranslation();
+    const {i18n} = useTranslation();
 
     const handleChangeLanguage = (e) => {
-        i18n.changeLanguage(e.target.value);
+        i18n.changeLanguage(e.target.value).then();
     };
 
     return (

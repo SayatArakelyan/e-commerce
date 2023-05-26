@@ -1,49 +1,37 @@
-import React, { useState ,useEffect} from 'react';
-import {useTranslation} from "react-i18next";
+import React, {useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {Link} from "react-router-dom";
 
 const NestedMenu = () => {
-    const {t,i18n} = useTranslation()
-
+    const {t} = useTranslation();
 
     const [menuItems, setMenuItems] = useState([
         {
-            title: `${t("menu.title")}`,
-            submenu: [
-                { title: 'Submenu 1-1' },
-                { title: 'Submenu 1-2' },
-                { title: 'Submenu 1-3' }
-            ],
-            submenuOpen: false
+            title: 'menu.title',
+            path: '/',
         },
         {
-            title: 'Menu 2',
-            submenu: [
-                { title: 'Submenu 2-1' },
-                { title: 'Submenu 2-2' },
-                { title: 'Submenu 2-3' }
-            ],
-            submenuOpen: false
+            title: 'menu.title2',
+            path: 'services',
         },
         {
-            title: 'Menu 3',
+            title: 'menu.title3',
             submenu: [
-                { title: 'Submenu 3-1' },
-                { title: 'Submenu 3-2' },
-                { title: 'Submenu 3-3' }
+                {title: 'menu.submenu1'},
+                {title: 'menu.submenu2'},
             ],
-            submenuOpen: false
-        }
+            path: 'gallery',
+            submenuOpen: false,
+        },
+        {
+            title: 'menu.title4',
+            path: 'Vacancy',
+        },
+        {
+            title: 'menu.title5',
+            path: 'Contacts',
+        },
     ]);
-
-    useEffect(() => {
-
-        const savedLanguage = localStorage.getItem('i18nextLng');
-        console.log(savedLanguage)
-        if (savedLanguage) {
-            i18n.changeLanguage(savedLanguage);
-        }
-    }, []);
-
 
 
     const handleMouseEnter = (index) => {
@@ -58,8 +46,6 @@ const NestedMenu = () => {
         setMenuItems(updatedMenuItems);
     };
 
-
-
     return (
         <ul className="nested-menu">
             {menuItems.map((menuItem, index) => (
@@ -69,10 +55,11 @@ const NestedMenu = () => {
                     onMouseEnter={() => handleMouseEnter(index)}
                     onMouseLeave={() => handleMouseLeave(index)}
                 >
-                    <a href="#" className="nested-menu__link">
-                        {menuItem.title}
-                    </a>
-                    {menuItem.submenuOpen && (
+                    <Link to={menuItem.path} className="nested-menu__link">
+                        {t(menuItem.title)}
+                    </Link>
+
+                    {menuItem.submenuOpen && menuItem.submenu && (
                         <ul className="nested-menu__submenu">
                             {menuItem.submenu.map((submenuItem, subIndex) => (
                                 <li key={subIndex} className="nested-menu__submenu-item">

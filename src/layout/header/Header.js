@@ -5,13 +5,24 @@ import SmartPanel from "./SmartPanel";
 import SignIn from "./SignIn";
 import Register from "./Register";
 import SwitchLanguage from "./SwitchLanguage";
-import {useState} from "react";
-import MyProfile from "./MyProfile";
+import {useState,useEffect} from "react";
+import jwt_decode from "jwt-decode";
 
 
 const Header = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+        const user  = localStorage.getItem('user');
+
+        if (user) {
+            const token = JSON.parse(user )
+            // console.log(jwt_decode(token))
+        }
+        else return undefined
+    }, [])
+
 
     return (
         <header className="header">
@@ -33,9 +44,9 @@ const Header = () => {
                                     setIsModalVisible(false)
                                 }} userData={userData} setUserData={setUserData}/>
                         <Register userData={userData} setUserData={setUserData}/>
-                        {/*<MyProfile userData={userData} setUserData={setUserData}/>*/}
-<SwitchLanguage/>
-                        {/*<SwitchLanguage/>*/}
+
+                        <SwitchLanguage/>
+
                     </div>
 
 
@@ -43,6 +54,7 @@ const Header = () => {
 
 
             </div>
+
         </header>
     );
 };

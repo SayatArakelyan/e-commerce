@@ -1,0 +1,9 @@
+.nested-menu{
+  display: flex;
+  font-size: 40px;
+  padding: 60px 0 100px 0;
+  justify-content: space-around;
+  &__item{
+    margin-right: 30px;
+  }
+}

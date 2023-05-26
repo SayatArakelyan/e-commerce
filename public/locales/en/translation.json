@@ -12,6 +12,21 @@
     "btn3": "Next"
   },
   "menu": {
-    "title": "Home"
+    "title": "Home",
+    "title2": "Services",
+    "title3": "Gallery",
+    "title4": "Vacancy",
+    "title5": "Contacts"
+  },
+  "reasonToWork": {
+    "title": "YOU HAVE 5 REASONS TO START COLLABORATING WITH US",
+    "description1": "We GUARANTEE QUALITY combined with low prices.",
+    "description2": "We offer attractive cooperation conditions, including a FLEXIBLE DISCOUNT SYSTEM.",
+    "description3": "The opportunity to have clothing MADE ACCORDING TO YOUR DESIGN, provided you have sketches and patterns - it's a great opportunity for those who are launching their own fashion line.",
+    "description4": "We ensure the FASTEST ORDER PROCESSING TIME, SAVING YOUR TIME.",
+    "description5": "Our PROFESSIONAL STAFF of responsible workers pays special attention to quality control."
+  },
+  "gallery": {
+    "title": "PHOTOS OF THE SEWING FACTORY"
   }
 }

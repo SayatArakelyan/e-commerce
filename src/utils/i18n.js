@@ -4,21 +4,21 @@ import LanguageDetector from "i18next-browser-languagedetector"
 import {initReactI18next} from "react-i18next";
 
 i18n
-.use(Backend)
-.use(LanguageDetector)
-.use(initReactI18next)
-.init({
-    fallbackLng:"ru",
-    whiteList:["ru" ,"en"],
-    debug: false,
+    .use(Backend)
+    .use(LanguageDetector)
+    .use(initReactI18next)
+    .init({
+        fallbackLng: "ru",
+        whiteList: ["ru", "en"],
+        debug: false,
 
-    detection:{
-        order:["localStorage","cookie"],
-        caches:["localStorage","cookie"]
-    },
-    interpolation:{
-escapeValue:false
-    }
-})
+        detection: {
+            order: ["localStorage", "cookie"],
+            caches: ["localStorage", "cookie"]
+        },
+        interpolation: {
+            escapeValue: false
+        }
+    })
 
 export default i18n
