@@ -155,4 +155,22 @@ button, input {
     font-size: 20px;
     margin-bottom: 25px; }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  .pagination .page-item {
+    margin: 0 5px; }
+    .pagination .page-item .page-link {
+      display: block;
+      padding: 5px 10px;
+      background-color: #eaeaea;
+      color: #333;
+      text-decoration: none;
+      transition: background-color 0.3s; }
+      .pagination .page-item .page-link:hover {
+        background-color: #ccc; }
+
 /*# sourceMappingURL=style.css.map */
