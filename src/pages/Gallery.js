@@ -30,7 +30,7 @@ function Gallery() {
 
     const paginate = (pageNumber) => {
         navigate({
-            pathname: '/projects',
+            pathname: '/gallery',
             search: `?page=${pageNumber}`,
         });
         setCurrentPage(pageNumber);

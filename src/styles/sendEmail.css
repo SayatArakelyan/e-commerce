@@ -1,0 +1,24 @@
+/* MessageForm.scss */
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.input {
+  width: 300px;
+  margin-bottom: 10px; }
+
+.message-input {
+  height: 100px; }
+
+.button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer; }
+
+.button:hover {
+  background-color: #0056b3; }
+
+/*# sourceMappingURL=sendEmail.css.map */

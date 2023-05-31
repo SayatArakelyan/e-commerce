@@ -2,7 +2,16 @@ import React from 'react';
 
 function Services() {
     return (
-        <div></div>
+        <section className="services">
+            <div className="container">
+                <div className="row">
+                    kdlekf
+                </div>
+
+            </div>
+
+
+        </section>
     );
 }
 

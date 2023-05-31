@@ -28,5 +28,13 @@
   },
   "gallery": {
     "title": "PHOTOS OF THE SEWING FACTORY"
+  },
+  "sendEmail": {
+    "placeholder1": "Write your email",
+    "placeholder2": "Write your message",
+    "btn1": "Choose a file",
+    "btn2": "send",
+    "title": "HAVE A QUESTION?",
+    "description": "Just write to us, you can attach a file for estimation or consultation. Our managers will provide you with professional advice."
   }
 }

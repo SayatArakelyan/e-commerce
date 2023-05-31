@@ -16,7 +16,9 @@ button, input {
 
 .container {
   max-width: 1200px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden; }
 
 .row {
   display: flex;
@@ -119,7 +121,7 @@ button, input {
 .modal {
   position: absolute;
   top: 200px;
-  right: 700px;
+  right: 475px;
   z-index: 1; }
 
 .nested-menu {
@@ -160,7 +162,7 @@ button, input {
   justify-content: center;
   list-style-type: none;
   margin: 0;
-  padding: 0; }
+  padding-bottom: 40px; }
   .pagination .page-item {
     margin: 0 5px; }
     .pagination .page-item .page-link {
@@ -172,5 +174,62 @@ button, input {
       transition: background-color 0.3s; }
       .pagination .page-item .page-link:hover {
         background-color: #ccc; }
+
+.sendEmail {
+  display: flex;
+  flex-direction: column; }
+  .sendEmail__content {
+    width: 30%; }
+  .sendEmail__content2 {
+    width: 70%;
+    display: flex; }
+  .sendEmail__form {
+    display: flex;
+    flex-direction: column; }
+  .sendEmail__input {
+    border-radius: 20px;
+    background: #3c3c3c;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 350px; }
+  .sendEmail__textarea {
+    border-radius: 20px;
+    background: #3c3c3c;
+    height: 200px;
+    line-height: 200px;
+    width: 350px;
+    text-align: center;
+    margin-bottom: 20px;
+    resize: none;
+    overflow: hidden;
+    cursor: pointer; }
+  .sendEmail__submit {
+    background-color: #a71f67;
+    height: 40px;
+    border-radius: 20px;
+    width: 350px; }
+
+#myFileInput {
+  display: none; }
+
+#fileInputLabel {
+  background-color: #3c3c3c;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: 350px; }
+
+#fileInputLabel:hover {
+  background-color: #e0e0e0; }
+
+.title {
+  font-size: 24px;
+  margin-bottom: 40px; }
+
+.description {
+  width: 600px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -12,6 +12,7 @@
   color: white;
   background-color: #000c24;
 
+
 }
 
 button, input {
@@ -36,6 +37,8 @@ $red: #F52222D;
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
 }
 
 .row {
@@ -47,3 +50,4 @@ $red: #F52222D;
 @import "nav";
 @import "reastontoWorkWithUs";
 @import "pagination";
+@import "sendEmail";

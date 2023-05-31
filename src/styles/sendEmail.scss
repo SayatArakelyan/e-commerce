@@ -1,0 +1,82 @@
+.sendEmail{
+  display: flex;
+  flex-direction: column;
+  &__content{
+    width: 30%;
+  }
+  &__content2{
+    width: 70%;
+    display: flex;
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+
+
+  }
+  &__input{
+    border-radius: 20px;
+    background: #3c3c3c;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 350px;
+  }
+  &__textarea{
+    border-radius: 20px;
+    background: #3c3c3c;
+    height: 200px;
+    line-height: 200px;
+    width: 350px;
+    text-align: center;
+    margin-bottom: 20px;
+    resize: none;
+    overflow: hidden;
+    cursor: pointer;
+
+
+  }
+  &__submit{
+background-color: #a71f67;
+    height: 40px;
+    border-radius: 20px;
+    width: 350px;
+
+  }
+}
+
+#myFileInput {
+  display: none;
+}
+
+#fileInputLabel {
+  background-color: #3c3c3c;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: 350px;
+
+}
+
+#fileInputLabel:hover {
+  background-color: #e0e0e0;
+
+}
+.sendEmail__content_item1{
+
+}
+
+.title{
+  font-size: 24px;
+  margin-bottom: 40px;
+
+
+}
+
+.description{
+  width: 600px;
+}
+
+

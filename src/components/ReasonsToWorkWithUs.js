@@ -1,5 +1,5 @@
 import React from 'react';
-import clothing01 from "../assets/img/clothing1.jpg"
+import clothing01 from "../assets/img/clothing1-removebg-preview.png"
 import {useTranslation} from "react-i18next";
 
 
