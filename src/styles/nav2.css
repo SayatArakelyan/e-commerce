@@ -1,0 +1,20 @@
+ul {
+  list-style: none; }
+
+li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer; }
+
+img {
+  margin-right: 10px; }
+
+ul ul {
+  display: none;
+  margin-left: 20px; }
+
+li:hover ul {
+  display: block; }
+
+/*# sourceMappingURL=nav2.css.map */

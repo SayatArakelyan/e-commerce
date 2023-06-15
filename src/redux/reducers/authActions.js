@@ -1,7 +1,6 @@
 import axios from 'axios'
 import {createAsyncThunk} from '@reduxjs/toolkit'
 import {API_URL} from "../../constants/api";
-import {AUTH_TOKEN} from "../../constants";
 
 
 export const registerUser = createAsyncThunk(
@@ -22,8 +21,8 @@ export const registerUser = createAsyncThunk(
 
             const config = {
                 headers: {
-                    'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryeOd8SGMRXeSCnXt6',
-                    "Authorization": JSON.parse(localStorage.getItem(AUTH_TOKEN)),
+                    'Content-Type': 'multipart/form-data',
+                    "Authorization": JSON.parse(localStorage.getItem("user")),
                 },
             }
             await axios.post(

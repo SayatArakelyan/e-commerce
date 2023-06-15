@@ -4,12 +4,11 @@ import {useTranslation} from "react-i18next";
 import {login} from "../../redux/reducers/authActions";
 import {useDispatch} from "react-redux";
 
-const SignIn = ({isModalVisible, onClickOutside, setIsModalVisible,userData, setUserData}) => {
+const SignIn = ({isModalVisible, onClickOutside, setIsModalVisible, userData, setUserData}) => {
     const {t} = useTranslation();
     const ref = useRef(null);
     const dispatch = useDispatch();
     const [errors, setErrors] = useState({});
-
 
 
     useEffect(() => {
@@ -28,6 +27,8 @@ const SignIn = ({isModalVisible, onClickOutside, setIsModalVisible,userData, set
         if (isValid) {
             onFinish(event);
             setIsModalVisible(!isModalVisible);
+            window.location.reload()
+
         } else setIsModalVisible(isModalVisible)
     };
 
@@ -47,7 +48,6 @@ const SignIn = ({isModalVisible, onClickOutside, setIsModalVisible,userData, set
             const data = response.payload.user;
 
             setUserData(data)
-
 
 
             localStorage.setItem("userEmail", data.Email);
@@ -73,11 +73,6 @@ const SignIn = ({isModalVisible, onClickOutside, setIsModalVisible,userData, set
         return null;
     }
 
-    const handleSignOut = () => {
-
-        setUserData(null);
-        localStorage.removeItem("userEmail");
-    };
 
     const handleShowModal = () => {
         setIsModalVisible(true);
@@ -160,10 +155,11 @@ const SignIn = ({isModalVisible, onClickOutside, setIsModalVisible,userData, set
                 </div>
             )}
             {userData && (
-                <button onClick={handleSignOut}>{t("signOut")}</button>
+
+                <span></span>
             )}
 
-            <div> {userData && userData.FirstName}</div>
+
         </>
 
     );

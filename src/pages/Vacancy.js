@@ -1,37 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { API_URL } from "../constants/api";
-import {useDispatch} from "react-redux";
-import {filterVacancies} from "../redux/reducers/VacancySlice";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { fetchVacancies } from "../redux/reducers/VacancySlice";
 
 
 const Vacancy = () => {
-    const [vacancies, setVacancies] = useState([]);
+    const vacancies = useSelector((state) => state.vacancy.vacancies);
+
     const [categories, setCategories] = useState([]);
     const [levels, setLevels] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState('');
     const [selectedLevel, setSelectedLevel] = useState('');
-    const dispatch = useDispatch
+    const dispatch = useDispatch();
+
 
     useEffect(() => {
-        // Fetch job categories
-        axios.get(`${API_URL}/vacancy/category`)
-            .then(response => {
+        const fetchCategories = async () => {
+            try {
+                const response = await axios.get(`${API_URL}/vacancy/category`);
                 setCategories(response.data);
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error(error);
-            });
+            }
+        };
 
-        // Fetch specialist levels
-        axios.get(`${API_URL}/vacancy/specialistLevel`)
-            .then(response => {
+        const fetchLevels = async () => {
+            try {
+                const response = await axios.get(`${API_URL}/vacancy/specialistLevel`);
                 setLevels(response.data);
-            })
-            .catch(error => {
+            } catch (error) {
                 console.error(error);
-            });
-    }, []);
+            }
+        };
+
+        fetchCategories();
+        dispatch(fetchVacancies());
+        fetchLevels();
+    }, [dispatch,localStorage.getItem('i18nextLng')]);
 
     const handleCategoryChange = (e) => {
         setSelectedCategory(e.target.value);
@@ -42,57 +49,83 @@ const Vacancy = () => {
     };
 
     const handleFilter = () => {
-        axios.get(`${API_URL}/vacancy`, {
-            params: {
-                categoryId: selectedCategory,
-                levelId: selectedLevel
-            }
-        })
-            .then(response => {
-                setVacancies(response.data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        dispatch(fetchVacancies({
+            categoryId: selectedCategory,
+            levelId: selectedLevel
+        }));
     };
 
+    console.log(vacancies)
     return (
-        <div>
-            <h1>Vacancy List</h1>
-            <div>
-                <label>Category:</label>
-                <select value={selectedCategory} onChange={handleCategoryChange}>
-                    <option value="">All Categories</option>
-                    {categories.map(category => (
-                        <option key={category.id} value={category.id}>
-                            {category.titleEn}
-                        </option>
-                    ))}
-                </select>
+        <section className="vacancy">
+            <div className="container">
+                <div className="row">
+                    <div className="filter__content">
+                        <div>
+                            <h1>Filter by job category</h1>
+                            <select value={selectedCategory} onChange={handleCategoryChange}>
+                                <option value="">All Categories</option>
+                                {categories.map(category => (
+                                    <option key={category.id} value={category.id}>
+                                        {localStorage.getItem('i18nextLng') === 'ru'
+                                            ? category.titleRu
+                                            : category.titleEn
+                                        }
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <div>
+                            <h1>Filter by specialist level</h1>
+                            <select value={selectedLevel} onChange={handleLevelChange}>
+                                <option value="">All Levels</option>
+                                {levels.map(level => (
+                                    <option key={level.id} value={level.id}>
+                                        {localStorage.getItem('i18nextLng') === 'ru'
+                                            ? level.titleRu
+                                            : level.titleEn
+                                        }
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                        <button onClick={handleFilter}>Filter</button>
+                    </div>
+
+                    <div className="job__content">
+                        <h2 style={{ textAlign: "center", color: "red" }}>Hot Jobs</h2>
+                        <div>
+                            {vacancies.map(vacancy => (
+                                <div key={vacancy.id} className="vacancy__content">
+                                    <div className="vacancy__item1">
+                                        <img src={`http://localhost:4444/${vacancy.image}`}
+                                             style={{ width: "80px", height: "80px" }}
+                                             alt={`${vacancy.titleEn}`}
+                                        />
+                                    </div>
+                                    <div className="vacancy__item2">
+                                        <h3>
+                                            {localStorage.getItem('i18nextLng') === 'ru'
+                                                ? vacancy.titleRu
+                                                : vacancy.titleEn
+                                            }
+                                        </h3>
+                                    </div>
+                                    <div className="vacancy__item3">
+                                        <p>Deadline: {vacancy.deadline}</p>
+                                    </div>
+                                    <div className="vacancy__item3">
+                                        <Link to={`${vacancy.titleEn}/${vacancy.id}`}>
+                                            <button>view more</button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label>Specialist Level:</label>
-                <select value={selectedLevel} onChange={handleLevelChange}>
-                    <option value="">All Levels</option>
-                    {levels.map(level => (
-                        <option key={level.id} value={level.id}>
-                            {level.titleEn}
-                        </option>
-                    ))}
-                </select>
-            </div>
-            <button onClick={handleFilter}>Filter</button>
-            <h2>Filtered Vacancies:</h2>
-            <ul>
-                {vacancies.map(vacancy => (
-                    <li key={vacancy.id}>
-                        <h3>{vacancy.titleEn}</h3>
-                        <p>{vacancy.descriptionEn}</p>
-                        <p>Deadline: {vacancy.deadline}</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        </section>
     );
 };
 

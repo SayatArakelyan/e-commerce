@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { API_URL } from '../../constants/api';
 
+
 export const fetchLevels = createAsyncThunk('levels/fetchLevels', async () => {
     const response = await axios.get(`${API_URL}/vacancy/specialistLevel`);
     return response.data;
@@ -32,8 +33,6 @@ const levelSlice = createSlice({
     },
 });
 
-export const selectLevels = (state) => state.levels.levels;
-export const selectLevelsLoading = (state) => state.levels.loading;
-export const selectLevelsError = (state) => state.levels.error;
+
 
 export default levelSlice.reducer;

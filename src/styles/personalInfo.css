@@ -1,0 +1,14 @@
+.personal-info-container {
+  border: 1px solid #ccc;
+  padding: 20px; }
+
+.info-item {
+  margin-bottom: 10px; }
+
+.info-item label {
+  font-weight: bold; }
+
+.info-item span {
+  margin-left: 10px; }
+
+/*# sourceMappingURL=personalInfo.css.map */

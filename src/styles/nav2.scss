@@ -1,0 +1,26 @@
+
+
+
+
+li {
+
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  cursor: pointer;
+
+}
+
+img {
+  margin-right: 10px;
+}
+
+ul ul {
+  display: none;
+  margin-left: 20px;
+}
+
+li:hover ul {
+  display: block;
+}

@@ -7,21 +7,16 @@ import Register from "./Register";
 import SwitchLanguage from "./SwitchLanguage";
 import {useState,useEffect} from "react";
 import jwt_decode from "jwt-decode";
+import MyProfile from "./MyProfile";
 
 
 const Header = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [userData, setUserData] = useState(null);
 
-    useEffect(() => {
-        const user  = localStorage.getItem('user');
 
-        if (user) {
-            const token = JSON.parse(user )
-            // console.log(jwt_decode(token))
-        }
-        else return undefined
-    }, [])
+
+
 
 
     return (
@@ -44,6 +39,7 @@ const Header = () => {
                                     setIsModalVisible(false)
                                 }} userData={userData} setUserData={setUserData}/>
                         <Register userData={userData} setUserData={setUserData}/>
+                        <MyProfile />
 
                         <SwitchLanguage/>
 
