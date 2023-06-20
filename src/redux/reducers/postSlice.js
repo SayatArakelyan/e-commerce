@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
 import {API_URL} from '../../constants/api';
-import {AUTH_TOKEN} from "../../constants";
+
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (userId) => {
     try {

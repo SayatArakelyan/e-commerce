@@ -16,7 +16,7 @@ function Gallery() {
     const {t} = useTranslation();
     let query = useQuery();
     const [currentPage, setCurrentPage] = useState(query.get('page') || 1);
-    const [projectPerPage] = useState(1);
+    const [projectPerPage] = useState(4);
 
     useEffect(() => {
         setLoading(true);
@@ -50,7 +50,7 @@ function Gallery() {
                     <List.Item key={item.id}>
                         <Card>
                             <span>{item.title}</span>
-                            <Image src={`http://localhost:4444/${item.image}`}/>
+                            <Image src={`http://localhost:4444/${item.image}`} style={{height:"400px",objectFit:"cover"}}/>
                         </Card>
                     </List.Item>
                 )}

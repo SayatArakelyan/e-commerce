@@ -22,7 +22,7 @@ export const registerUser = createAsyncThunk(
             const config = {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                    "Authorization": JSON.parse(localStorage.getItem("user")),
+                    // "Authorization": JSON.parse(localStorage.getItem("user")),
                 },
             }
             await axios.post(
@@ -54,7 +54,5 @@ export const login = createAsyncThunk('user/login', async (credentials, thunkAPI
 });
 
 
-export const logout = createAsyncThunk('user/logout', () => {
-    localStorage.removeItem('user');
-});
+
 

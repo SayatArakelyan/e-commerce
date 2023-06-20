@@ -18,6 +18,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
 
     const user = localStorage.getItem("user");
+    console.log(user)
 
 
 
@@ -33,7 +34,7 @@ function App() {
                     <Route path= "vacancy/:titleEn/:id" element={<AboutVacancy/>} />
                     <Route path="contacts" element={<Contacts/>}/>
                     <Route path="myProfile" element={<ProtectedRoute user={user}><PersonalInfo/></ProtectedRoute> }/>
-                    <Route path="massage" element={<ProtectedRoute user={user}><Massages/></ProtectedRoute> }/>
+                    <Route path="massage" element={<ProtectedRoute user={user}><Massages user={user}/></ProtectedRoute> }/>
                     <Route path="*" element={<NotaFound/>}/>
                 </Route>
             </Routes>

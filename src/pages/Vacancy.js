@@ -93,7 +93,9 @@ const Vacancy = () => {
                     </div>
 
                     <div className="job__content">
-                        <h2 style={{ textAlign: "center", color: "red" }}>Hot Jobs</h2>
+                        <h2 style={{ textAlign: "center", color: "red" }}>
+                            {vacancies.length > 0 ? "Hot jobs" : "No filtered jobs"}
+                        </h2>
                         <div>
                             {vacancies.map(vacancy => (
                                 <div key={vacancy.id} className="vacancy__content">
