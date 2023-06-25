@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import {Card, Image, List, Typography} from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Card, Image, List, Typography } from 'antd';
 import useQuery from '../utils/useQuery';
-import {useSelector, useDispatch} from 'react-redux';
-import {fetchProducts} from '../redux/reducers/productSlice';
-import {useTranslation} from 'react-i18next';
-import {useNavigate} from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchProducts } from '../redux/reducers/productSlice';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
 import Pagination from '../components/Pagination';
 
@@ -13,10 +13,10 @@ function Gallery() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const product = useSelector((state) => state.product.products);
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     let query = useQuery();
     const [currentPage, setCurrentPage] = useState(query.get('page') || 1);
-    const [projectPerPage] = useState(4);
+    const [projectPerPage] = useState(10);
 
     useEffect(() => {
         setLoading(true);
@@ -37,27 +37,28 @@ function Gallery() {
     };
 
     return (
-        <>
-            <Typography.Title style={{textAlign: 'center', color: 'white'}}>
-                {t('gallery.title')}
-            </Typography.Title>
+        <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+            <div>
+                <Typography.Title style={{ textAlign: 'center', color: 'white' }}>{t('gallery.title')}</Typography.Title>
 
-            <List
-                loading={loading}
-                grid={{xs: 1, sm: 2, md: 3, lg: 4, xl: 5, xxl: 6}}
-                dataSource={currentProject}
-                renderItem={(item) => (
-                    <List.Item key={item.id}>
-                        <Card>
-                            <span>{item.title}</span>
-                            <Image src={`http://localhost:4444/${item.image}`} style={{height:"400px",objectFit:"cover"}}/>
-                        </Card>
-                    </List.Item>
-                )}
-            />
+                <List
 
-            <Pagination projectPerPage={projectPerPage} totalProjects={product.length} paginate={paginate}/>
-        </>
+                    loading={loading}
+                    grid={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5, xxl: 6 }}
+                    dataSource={currentProject}
+                    renderItem={(item) => (
+                        <List.Item key={item.id} >
+                            <Card >
+                                <span>{item.title}</span>
+                                <Image src={`http://localhost:4444/${item.image}`} style={{ height: '250px', objectFit: 'cover' }} />
+                            </Card>
+                        </List.Item>
+                    )}
+                />
+
+                <Pagination projectPerPage={projectPerPage} totalProjects={product.length} paginate={paginate} />
+            </div>
+        </div>
     );
 }
 

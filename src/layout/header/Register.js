@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {registerUser} from '../../redux/reducers/authActions';
-import logo from "../../assets/img/logo.png";
+import logo from "../../assets/img/logo2.png";
 import {useTranslation} from "react-i18next";
 
 

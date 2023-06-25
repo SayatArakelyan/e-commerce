@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react';
-import logo from "../../assets/img/logo.png";
+import logo from "../../assets/img/logo2.png";
 import {useTranslation} from "react-i18next";
 import {login} from "../../redux/reducers/authActions";
 import {useDispatch} from "react-redux";
